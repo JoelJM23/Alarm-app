@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/JoelJM23/Alarm-app/static/css/main.52835c96.css",
-    "main.js": "/JoelJM23/Alarm-app/static/js/main.77662960.js",
-    "index.html": "/JoelJM23/Alarm-app/index.html",
-    "main.52835c96.css.map": "/JoelJM23/Alarm-app/static/css/main.52835c96.css.map",
-    "main.77662960.js.map": "/JoelJM23/Alarm-app/static/js/main.77662960.js.map"
+    "main.css": "/Alarm-app/static/css/main.52835c96.css",
+    "main.js": "/Alarm-app/static/js/main.77662960.js",
+    "index.html": "/Alarm-app/index.html",
+    "main.52835c96.css.map": "/Alarm-app/static/css/main.52835c96.css.map",
+    "main.77662960.js.map": "/Alarm-app/static/js/main.77662960.js.map"
   },
   "entrypoints": [
     "static/css/main.52835c96.css",
