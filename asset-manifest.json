@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/JoelJM23/Alarm-app/static/css/main.52835c96.css",
+    "main.js": "/JoelJM23/Alarm-app/static/js/main.77662960.js",
+    "index.html": "/JoelJM23/Alarm-app/index.html",
+    "main.52835c96.css.map": "/JoelJM23/Alarm-app/static/css/main.52835c96.css.map",
+    "main.77662960.js.map": "/JoelJM23/Alarm-app/static/js/main.77662960.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.52835c96.css",
+    "static/js/main.77662960.js"
+  ]
+}
