@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Avisillos</string>
+    <string name="title_activity_main">Avisillos</string>
+    <string name="package_name">com.guajolotes.avisillos</string>
+    <string name="custom_url_scheme">com.guajolotes.avisillos</string>
+</resources>

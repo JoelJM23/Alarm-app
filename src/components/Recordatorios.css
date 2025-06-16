@@ -1,0 +1,80 @@
+.recordatorio-contenedor {
+  padding: 1rem;
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.formulario label {
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+.formulario input,
+.formulario select,
+.formulario button,
+.datepicker-input {
+  padding: 0.5rem;
+  border-radius: 8px;
+  border: none;
+}
+
+.formulario input,
+.formulario select,
+.datepicker-input {
+  background-color: #2a2a2a;
+  color: white;
+}
+
+.formulario button {
+  background-color: #f57c00;
+  color: white;
+  cursor: pointer;
+}
+
+.recordatorio-card {
+  border-left: 5px solid #f57c00;
+  background: #1e1e1e;
+  padding: 1rem;
+  margin-bottom: 0.5rem;
+  border-radius: 12px;
+}
+
+.hora-selector {
+  display: flex;
+  gap: 0.3rem;
+  align-items: center;
+}
+
+.hora-selector select {
+  background-color: #2a2a2a;
+  color: white;
+  padding: 0.4rem;
+  border-radius: 6px;
+  border: none;
+}
+
+.btn-eliminar {
+  background: transparent;
+  border: none;
+  color: #f44336;
+  font-size: 1.2rem;
+  cursor: pointer;
+  margin-left: 0.5rem;
+}
+
+.acciones-alarma {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.encabezado-recordatorio {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
