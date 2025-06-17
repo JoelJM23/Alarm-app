@@ -190,6 +190,7 @@ input:checked + .slider:before {
   color: #f44336;
   font-size: 1.2rem;
   cursor: pointer;
+  margin-left: 41%;
 }
 
 /* Otros */
