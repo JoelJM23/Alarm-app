@@ -4,6 +4,8 @@
   Released under the MIT License.
 */
 
+/*! Capacitor: https://capacitorjs.com/ - MIT License */
+
 /**
  * @license React
  * react-dom-client.production.js
