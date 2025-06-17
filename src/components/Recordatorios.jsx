@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import { LocalNotifications } from '@capacitor/local-notifications';
 import './Recordatorios.css';
 
 export default function Recordatorios() {
@@ -43,7 +44,7 @@ export default function Recordatorios() {
     const interval = setInterval(() => {
       const ahora = new Date();
 
-      recordatoriosRef.current.forEach((r) => {
+      recordatoriosRef.current.forEach(async (r) => {
         const horaNum = parseInt(r.hora);
         const hora24 = r.meridiano === 'PM' && horaNum < 12
           ? horaNum + 12
@@ -59,7 +60,16 @@ export default function Recordatorios() {
           if (audio) audio.play();
 
           if (Notification.permission === 'granted') {
-            new Notification('📌 Recordatorio', { body: r.texto });
+            await LocalNotifications.schedule({
+              notifications: [
+                {
+                  title: '📌 Recordatorio',
+                  body: r.texto || '¡Tienes una tarea pendiente!',
+                  id: r.id,
+                  schedule: { at: new Date() },
+                },
+              ],
+            });
           }
 
           const actualizados = recordatoriosRef.current.map((el) =>
@@ -92,11 +102,11 @@ export default function Recordatorios() {
     });
     setFechaPicker(new Date());
   };
+
   const eliminarRecordatorio = (id) => {
     const filtrados = recordatorios.filter((r) => r.id !== id);
     updateRecordatorios(filtrados);
   };
-
 
   return (
     <div className="recordatorio-contenedor">
@@ -148,8 +158,6 @@ export default function Recordatorios() {
               🕒 {r.hora}:{r.minuto} {r.meridiano}
             </p>
           </div>
-
-          {/* ✅ Botón fuera del flujo, al fondo a la derecha */}
           <button
             className="btn-eliminar abajo"
             onClick={() => eliminarRecordatorio(r.id)}

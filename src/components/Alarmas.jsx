@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { LocalNotifications } from '@capacitor/local-notifications';
 import './Alarmas.css';
 
 export default function Alarmas() {
@@ -33,12 +34,11 @@ export default function Alarmas() {
 
   useEffect(() => {
     Notification.requestPermission();
-
     const interval = setInterval(() => {
       const ahora = new Date();
       const dia = nowDia();
 
-      alarmasRef.current.forEach((a) => {
+      alarmasRef.current.forEach(async (a) => {
         if (!a.activa || !a.dias.includes(dia)) return;
 
         let horaNum = parseInt(a.hora);
@@ -54,7 +54,16 @@ export default function Alarmas() {
             if (audio) audio.play();
 
             if (Notification.permission === 'granted') {
-              new Notification('⏰ Alarma', { body: a.etiqueta });
+              await LocalNotifications.schedule({
+                notifications: [
+                  {
+                    title: '⏰ Alarma',
+                    body: a.etiqueta || '¡Alarma programada!',
+                    id: a.id,
+                    schedule: { at: new Date() },
+                  },
+                ],
+              });
             }
 
             const actualizadas = alarmasRef.current.map((al) =>
@@ -65,7 +74,6 @@ export default function Alarmas() {
         }
       });
     }, 10000);
-
     return () => clearInterval(interval);
   }, []);
 
@@ -153,12 +161,10 @@ export default function Alarmas() {
               ))}
             </div>
           </div>
-
           <label className="switch switch-arriba">
             <input type="checkbox" checked={a.activa} onChange={() => toggleAlarma(a.id)} />
             <span className="slider"></span>
           </label>
-
           <button className="btn-eliminar abajo" onClick={() => eliminarAlarma(a.id)}>🗑️</button>
         </div>
       ))}
