@@ -12,11 +12,10 @@ export default function Alarmas() {
   });
 
   const diasSemana = ['Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sa', 'Do'];
-  const nowDia = () => diasSemana[(new Date().getDay() + 6) % 7]; // Ajustar para que 0=Domingo
+  const nowDia = () => diasSemana[(new Date().getDay() + 6) % 7];
 
   const alarmasRef = useRef([]);
 
-  // Cargar alarmas desde localStorage
   useEffect(() => {
     const data = localStorage.getItem('alarmas');
     if (data) {
@@ -26,14 +25,12 @@ export default function Alarmas() {
     }
   }, []);
 
-  // Guardar alarmas en localStorage
   const updateAlarmas = (nuevasAlarmas) => {
     setAlarmas(nuevasAlarmas);
     alarmasRef.current = nuevasAlarmas;
     localStorage.setItem('alarmas', JSON.stringify(nuevasAlarmas));
   };
 
-  // Revisión de alarmas cada 10 segundos
   useEffect(() => {
     Notification.requestPermission();
 
@@ -97,11 +94,11 @@ export default function Alarmas() {
     const actualizadas = alarmas.map(a => a.id === id ? { ...a, activa: !a.activa } : a);
     updateAlarmas(actualizadas);
   };
+
   const eliminarAlarma = (id) => {
     const filtradas = alarmas.filter((a) => a.id !== id);
     updateAlarmas(filtradas);
   };
-
 
   return (
     <div className="alarma-contenedor">
@@ -156,13 +153,13 @@ export default function Alarmas() {
               ))}
             </div>
           </div>
-          <div className="acciones-alarma">
-            <label className="switch">
-                <input type="checkbox" checked={a.activa} onChange={() => toggleAlarma(a.id)} />
-                <span className="slider"></span>
-            </label>
-            <button className="btn-eliminar" onClick={() => eliminarAlarma(a.id)}>🗑️</button>
-           </div>
+
+          <label className="switch switch-arriba">
+            <input type="checkbox" checked={a.activa} onChange={() => toggleAlarma(a.id)} />
+            <span className="slider"></span>
+          </label>
+
+          <button className="btn-eliminar abajo" onClick={() => eliminarAlarma(a.id)}>🗑️</button>
         </div>
       ))}
     </div>

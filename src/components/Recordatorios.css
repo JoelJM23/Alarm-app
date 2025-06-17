@@ -42,6 +42,9 @@
   padding: 1rem;
   margin-bottom: 0.5rem;
   border-radius: 12px;
+  position: relative;
+  padding-right: 3rem; 
+  width: 90%;
 }
 
 .hora-selector {
@@ -58,15 +61,6 @@
   border: none;
 }
 
-.btn-eliminar {
-  background: transparent;
-  border: none;
-  color: #f44336;
-  font-size: 1.2rem;
-  cursor: pointer;
-  margin-left: 0.5rem;
-}
-
 .acciones-alarma {
   display: flex;
   align-items: center;
@@ -77,4 +71,18 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 0.5rem;
+  width: 100%;
 }
+
+.btn-eliminar {
+  background: transparent;
+  border: none;
+  color: #f44336;
+  font-size: 1.2rem;
+  cursor: pointer;
+  margin-right: 0;
+  position: absolute;
+  margin-left: 35%;
+}
+

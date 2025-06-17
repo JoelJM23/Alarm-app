@@ -22,3 +22,4 @@ export default function BottomNav({ currentView, setView }) {
     </div>
   );
 }
+  

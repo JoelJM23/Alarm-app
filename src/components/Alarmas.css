@@ -2,6 +2,7 @@
   padding: 1rem;
 }
 
+/* Formulario */
 .formulario {
   display: flex;
   flex-direction: column;
@@ -34,6 +35,22 @@
   cursor: pointer;
 }
 
+/* Selector de hora */
+.hora-selector {
+  display: flex;
+  gap: 0.3rem;
+  align-items: center;
+}
+
+.hora-selector select {
+  background-color: #2a2a2a;
+  color: white;
+  padding: 0.4rem;
+  border-radius: 6px;
+  border: none;
+}
+
+/* Días de la semana */
 .dias-selector {
   display: flex;
   gap: 0.3rem;
@@ -43,20 +60,43 @@
 .dias-selector button {
   background: #444;
   color: white;
-  padding: 0.3rem 0.6rem;
+  width: 2.4rem;
+  height: 2.4rem;
+  font-size: 0.9rem;
   border: none;
   border-radius: 6px;
   cursor: pointer;
+  text-align: center;
+  line-height: 2.4rem;
+  padding: 0;
+  flex-shrink: 0;
+  transition: background 0.2s;
 }
 
 .dias-selector button.activo {
   background: #1f6feb;
 }
 
+@media (max-width: 480px) {
+  .dias-selector button {
+    width: 2.2rem;
+    height: 2.2rem;
+    font-size: 0.85rem;
+    line-height: 2.2rem;
+  }
+}
+
+/* Tarjeta de alarma */
 .alarma-card {
+  position: relative;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
+  padding: 1rem;
+  padding-right: 3.5rem;
+  border-radius: 12px;
+  background-color: #1e1e1e;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  margin-bottom: 1rem;
 }
 
 .alarma-hora {
@@ -65,8 +105,8 @@
 }
 
 .alarma-detalles {
-  flex: 1;
-  padding: 0 1rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .alarma-dias {
@@ -89,20 +129,7 @@
   color: white;
 }
 
-.hora-selector {
-  display: flex;
-  gap: 0.3rem;
-  align-items: center;
-}
-
-.hora-selector select {
-  background-color: #2a2a2a;
-  color: white;
-  padding: 0.4rem;
-  border-radius: 6px;
-  border: none;
-}
-
+/* Switch */
 .switch {
   position: relative;
   display: inline-block;
@@ -119,20 +146,25 @@
 .slider {
   position: absolute;
   cursor: pointer;
-  top: 0; left: 0; right: 0; bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   background-color: #ccc;
   border-radius: 34px;
-  transition: .4s;
+  transition: 0.4s;
 }
 
 .slider:before {
   position: absolute;
   content: "";
-  height: 16px; width: 16px;
-  left: 3px; bottom: 3px;
+  height: 16px;
+  width: 16px;
+  left: 3px;
+  bottom: 3px;
   background-color: white;
   border-radius: 50%;
-  transition: .4s;
+  transition: 0.4s;
 }
 
 input:checked + .slider {
@@ -143,24 +175,26 @@ input:checked + .slider:before {
   transform: translateX(18px);
 }
 
-.btn-eliminar {
+/* Posicionamiento personalizado */
+.switch-arriba {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+.btn-eliminar.abajo {
+  position: absolute;
+  bottom: 0;
   background: transparent;
   border: none;
   color: #f44336;
   font-size: 1.2rem;
   cursor: pointer;
-  margin-left: 0.5rem;
 }
 
-.acciones-alarma {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-}
-
+/* Otros */
 .encabezado-recordatorio {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-

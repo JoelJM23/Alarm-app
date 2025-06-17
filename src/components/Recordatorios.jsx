@@ -141,16 +141,22 @@ export default function Recordatorios() {
 
       {recordatorios.map((r) => (
         <div key={r.id} className="recordatorio-card card">
-        <div className="encabezado-recordatorio">
+          <div className="contenido-recordatorio">
             <h3>{r.texto}</h3>
-            <button className="btn-eliminar" onClick={() => eliminarRecordatorio(r.id)}>🗑️</button>
-        </div>
-        <p>
-            📅 {new Date(r.fecha).toLocaleDateString()}<br />
-            🕒 {r.hora}:{r.minuto} {r.meridiano}
-        </p>
-        </div>
+            <p>
+              📅 {new Date(r.fecha).toLocaleDateString()}<br />
+              🕒 {r.hora}:{r.minuto} {r.meridiano}
+            </p>
+          </div>
 
+          {/* ✅ Botón fuera del flujo, al fondo a la derecha */}
+          <button
+            className="btn-eliminar abajo"
+            onClick={() => eliminarRecordatorio(r.id)}
+          >
+            🗑️
+          </button>
+        </div>
       ))}
     </div>
   );
